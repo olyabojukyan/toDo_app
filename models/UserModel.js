@@ -23,15 +23,16 @@ const user=this
 bcrypt.hashSync()
 if (user.password.isModified()){
     return next()
-}
-return bcrypt.genSalt(Salt_round,(err,hashSalt ))
+})
+return bcrypt.genSalt(Salt_round,(err,hashSalt =>{
 if err next(err)
+)}
 bcrypt.hash(user.password, userSalt, (err, hash)=>{
     if err next(err)
     user.password=hash
     next()
 })
-})
+}),
 
 UserSchema.methods.comparePassword=function compirePassword(reqPass, cb){
     bcrypt.compare(reqPass, this.password,(err,match)=>{
