@@ -1,15 +1,15 @@
-const mongoose=require("mongoose");
+const mongoose=require("mongoose")
 
 let Schema=mongoose.Schema
 
 let toDoSchema=new Schema({
-  item: {
-      type:String
-  }  
-  },{
-      timestamp:true
-  })
-  const ToDo=mongoose.model("todo",toDoSchema)
-  module.exports={
-      ToDo
-  }
+    item:{
+        type:String
+    }
+},{
+    timestamps:true
+})
+const ToDo=mongoose.model("todo",toDoSchema)
+module.exports={
+    ToDo
+}
